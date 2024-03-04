@@ -83,21 +83,21 @@ export default function App() {
             <div className="row-1">
               <div className="icon-container">
                 <a className="twitter icon" href="https://twitter.com/MO_warsi786">
-                  <i className="fab fa-twitter"></i>
+                  <i class="fa-brands fa-x-twitter"></i>
                 </a>
                 <div className='head'>Twitter</div>
               </div>
 
               <div className="icon-container">
-                <a className="linkedin icon" href="https://www.linkedin.com/in/muhammad-owais-warsi-318987276/">
+                <a className="linkedin icon" href="https://www.linkedin.com/in/muhammad-owais-warsi-318987276/" style={{backgroundColor:"rgb(10,102,194)"}}>
                   <i className="fab fa-linkedin"></i>
                 </a>
                 <div className='head'>LinkedIn</div>
               </div>
 
               <div className="icon-container">
-                <a className="github icon" href="https://github.com/Muhammad-Owais-Warsi">
-                  <i className="fab fa-github"></i>
+                <a className="github icon" href="https://github.com/Muhammad-Owais-Warsi" style={{backgroundColor:"black"}}>
+                  <i class="fa-brands fa-github" style={{color:"white"}}></i>
                 </a>
                 <div className='head'>GitHub</div>
               </div>
@@ -112,7 +112,7 @@ export default function App() {
               </div>
 
               <div className="icon-container">
-                <a className="resume icon" href="/path/to/your/resume.pdf" download>
+                <a className="resume icon" download href='../../public/SMU_PG_Resume_Template__1_ (3).pdf'>
                   <i className="fas fa-file"></i>
                 </a>
                 <div className='head'>Resume</div>
