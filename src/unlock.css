@@ -1,19 +1,18 @@
 /* unlock.css */
 
 .lock {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(45deg, #7f7fd5, #86a8e7, #91eae4);
-    height: 61vh;
-    position: absolute;
-    /* overflow: hidden; */
-    z-index: 10001;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    left: 619px;
-    width: 16vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(45deg, #7f7fd5, #86a8e7, #91eae4);
+  height: 68vh;
+  position: absolute;
+  z-index: 10001;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px #0000004d;
+  padding: 20px;
+  left: 541px;
+  width: 18vw;
 }
 
 .charging {
