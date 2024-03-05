@@ -1,27 +1,39 @@
-/* UnlockScreen.css */
+/* unlock.css */
 
-.unlock-screen {
+.lock {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-color: #282c34; /* Background color for the phone screen */
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .slider {
-    width: 100%;
-    height: 20px;
-    appearance: none;
-    background: #61dafb; /* Slider color */
-    outline: none;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .unlocked .slider {
-    background: #4caf50; /* Change the color when unlocked */
-  }
-  
+    background: linear-gradient(45deg, #7f7fd5, #86a8e7, #91eae4);
+    height: 61vh;
+    position: absolute;
+    /* overflow: hidden; */
+    z-index: 10001;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    left: 619px;
+    width: 16vw;
+}
+
+.charging {
+  color: white;
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+.timing {
+  color: white;
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+/* Additional styles for the battery icon */
+.charging i {
+  font-size: 24px;
+}
+
+/* Additional styles for the time display */
+.timing {
+  font-family: 'Arial', sans-serif;
+}

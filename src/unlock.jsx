@@ -1,42 +1,38 @@
 // UnlockScreen.js
-
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './unlock.css'; // Import your CSS file for styling
 
-const UnlockScreen = ({ onUnlock }) => {
-  const [sliderPosition, setSliderPosition] = useState(0);
-  const [isUnlocked, setIsUnlocked] = useState(false);
+export default function Unlock() {
+  const [time, setTime] = useState('');
 
-  const handleSliderChange = (event) => {
-    setSliderPosition(event.target.value);
-  };
+  const screenRef = useRef();
 
-  const handleSliderRelease = () => {
-    // Adjust the unlock threshold based on your design
-    const unlockThreshold = 80;
-    
-    if (sliderPosition >= unlockThreshold) {
-      setIsUnlocked(true);
-      onUnlock(); // Callback to trigger the unlocking action
-    } else {
-      setSliderPosition(0); // Reset the slider position on unsuccessful attempt
-    }
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const newDate = new Date();
+      const hours = newDate.getHours();
+      const minutes = newDate.getMinutes();
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+
+      const formattedHours = hours % 12 || 12; // Convert 24-hour format to 12-hour format
+      const formattedTime = `${formattedHours < 10 ? '0' + formattedHours : formattedHours}:${minutes < 10 ? '0' + minutes : minutes} ${ampm}`;
+      setTime(formattedTime);
+    }, 1000);
+
+    // Clear the interval when the component unmounts
+    return () => clearInterval(intervalId);
+  }, []);
+
+  const unlock = () => {
+
+      screenRef.current.style.display = "none";
+
   };
 
   return (
-    <div className={`unlock-screen ${isUnlocked ? 'unlocked' : ''}`}>
-      <input
-        type="range"
-        min="0"
-        max="100"
-        value={sliderPosition}
-        className="slider"
-        onChange={handleSliderChange}
-        onMouseUp={handleSliderRelease}
-        onTouchEnd={handleSliderRelease}
-      />
+    <div className='lock' onClick={unlock} ref={screenRef}>
+      <div className='charging' ><i className="fas fa-battery-quarter"></i></div>
+      <div className='timing' >{time}</div>
     </div>
   );
-};
-
-export default UnlockScreen;
+}

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css'; // Import your CSS file
+import Unlock from './unlock.jsx';
+
 
 export default function App() {
   const [time, setTime] = useState('');
@@ -43,11 +45,6 @@ export default function App() {
       const photoDataUrl = canvas.toDataURL('image/png');
       console.log('Photo Data URL:', photoDataUrl);
   
-      // Display the clicked photo on the screen
-      const photoPreview = document.createElement('img');
-      photoPreview.src = photoDataUrl;
-      document.body.appendChild(photoPreview);
-  
       // Download and save the photo
       const downloadLink = document.createElement('a');
       downloadLink.href = photoDataUrl;
@@ -71,7 +68,9 @@ export default function App() {
   };
   return (
     <div className="body">
+  <Unlock></Unlock>
       <div className="parent">
+
         {!cameraOpen && (
           <>
             <div className="row-0">
@@ -133,8 +132,8 @@ export default function App() {
             <button className='camera' onClick={handleCameraClick}><i className="fas fa-camera"></i></button>
           ) : (
             <>
-              <button className='photo-btn' onClick={handleTakePhoto}><i className="fas fa-camera"></i> Take Photo</button>
-              <button className='return-btn' onClick={handleReturnHome}><i className="fas fa-arrow-left"></i> Return Home</button>
+              <button className='photo-btn' onClick={handleTakePhoto}><i className="fas fa-camera"></i></button>
+              <button className='return-btn' onClick={handleReturnHome}><i className="fas fa-arrow-left"></i></button>
             </>
           )}
           {cameraOpen && (
