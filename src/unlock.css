@@ -1,54 +1,30 @@
-.lock {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(45deg, #7f7fd5, #86a8e7, #91eae4);
-  height: 430px;
+/* unlock.css */
+/* LockScreen.css */
+
+.lock{
   position: absolute;
-  z-index: 10001;
+  width: 286px;
+  height: 470px;
+  background: linear-gradient(45deg, #7f7fd5, #86a8e7, #91eae4);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   border-radius: 20px;
-  box-shadow: 0 10px 20px #0000004d;
-  padding: 20px;
-  left: 50%;
-  top: 40%;
-  transform: translate(-50%, -50%);
-  width: 248px;
-
-  /* Responsive adjustments */
-  @media screen and (min-width: 768px) {
-    width: 80%;
-  }
-
-  @media screen and (min-width: 1024px) {
-    width: 60%;
-  }
-
-  @media screen and (min-width: 1440px) {
-    width: 50%;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* Ensure the lock screen is on top of other elements */
+  color: white;
 }
+
 
 .charging {
-  color: white;
-  font-size: 3vw;
-  /* margin-left: 12%; */
-  margin-top: -402px;
-  position: relative;
-  left: 200px;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
 .timing {
-  color: white;
-  font-size: 34px;
-  margin-right: 7vw;
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
-/* Additional styles for the battery icon */
-.charging i {
-  font-size: 3vw; /* Adjust as needed */
-}
-
-/* Additional styles for the time display */
-.timing {
-  font-family: 'Arial', sans-serif;
-}
+/* Add any additional styles for your unlock screen */
