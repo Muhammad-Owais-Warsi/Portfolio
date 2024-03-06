@@ -1,11 +1,13 @@
 // UnlockScreen.js
 import React, { useState, useRef, useEffect } from 'react';
 import './unlock.css'; // Import your CSS file for styling
+import LockScreen from './lockScreen.jsx';
 
 export default function Unlock() {
   const [time, setTime] = useState('');
 
   const screenRef = useRef();
+
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -30,9 +32,11 @@ export default function Unlock() {
   };
 
   return (
-    <div className='lock' onClick={unlock} ref={screenRef}>
+    <div className='lock' onClick={unlock} ref={screenRef} style={{flexDirection:"column"}}>
       <div className='charging' ><i className="fas fa-battery-quarter"></i></div>
       <div className='timing' >{time}</div>
+      <LockScreen></LockScreen>
+
     </div>
   );
 }

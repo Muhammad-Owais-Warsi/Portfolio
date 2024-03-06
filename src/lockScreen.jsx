@@ -1,18 +1,30 @@
-import "./lockScreen.css"
+// LockScreen.jsx
 
+import { useState, useEffect } from "react";
 
 
 export default function LockScreen() {
+  const [date, setDate] = useState(new Date());
 
-    const [date, setDate] = useState(new Date());
-    return (
-        <div className="lock-screen">
-          <div className="date-day-container">
-            <div className="date">{date.toLocaleDateString()}</div>
-            <div className="day">{date.toLocaleDateString('en-US', { weekday: 'long' })}</div>
-          </div>
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setDate(new Date());
+    }, 1000);
 
-        </div>
-      );
-    
+    return () => clearInterval(intervalId);
+  }, []);
+
+  const formattedDate = date.toLocaleDateString('en-US', {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
+  });
+
+  return (
+    <div className="lock-screen" style={{position:"relative",top:"-33px",fontSize: "18px"}}>
+      <div className="date-day-container" style={{ display: "flex" }}>
+        <div className="date">{formattedDate}</div>
+      </div>
+    </div>
+  );
 }

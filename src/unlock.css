@@ -15,16 +15,23 @@
   color: white;
 }
 
-
 .charging {
   font-size: 24px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
+  position: relative;
+  top: -165px;
+  left: 108px;
 }
+
 
 .timing {
   font-size: 36px;
   font-weight: bold;
   margin-bottom: 20px;
+  position: relative;
+  left: 2px;
+  top: -31px;
+
 }
 
 /* Add any additional styles for your unlock screen */
