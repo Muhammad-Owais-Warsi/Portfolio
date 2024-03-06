@@ -5,34 +5,52 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(45deg, #7f7fd5, #86a8e7, #91eae4);
-  height: 68vh;
-  position: absolute;
+  height: 430px;
+  position: relative;
   z-index: 10001;
   border-radius: 20px;
   box-shadow: 0 10px 20px #0000004d;
   padding: 20px;
-  left: 541px;
-  width: 18vw;
+  left: 167px;
+  width: 248px;
+  top: 2px;
+
+  /* Responsive adjustments */
+  /* @media screen and (min-width: 768px) {
+    left: 10%;
+    width: 80%;
+  }
+
+  @media screen and (min-width: 1024px) {
+    left: 20%;
+    width: 60%;
+  }
+
+  @media screen and (min-width: 1440px) {
+    left: 25%;
+    width: 50%;
+  } */
 }
 
 .charging {
   color: white;
-  font-size: 24px;
-  margin-left: 10px;
+  font-size: 3vw; /* Adjust as needed */
+  margin-left: 2vw; /* Adjust as needed */
 }
 
 .timing {
   color: white;
-  font-size: 24px;
-  margin-right: 10px;
+  font-size: 3vw; /* Adjust as needed */
+  margin-right: 2vw; /* Adjust as needed */
 }
 
 /* Additional styles for the battery icon */
 .charging i {
-  font-size: 24px;
+  font-size: 3vw; /* Adjust as needed */
 }
 
 /* Additional styles for the time display */
 .timing {
   font-family: 'Arial', sans-serif;
 }
+

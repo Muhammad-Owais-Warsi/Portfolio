@@ -24,6 +24,8 @@
   width: 246px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   /* Box shadow for a phone-like appearance */
+  position: relative;
+  left:-121px;
 }
 
 .head {
