@@ -143,7 +143,7 @@ export default function App() {
               </div>
 
               <div className="icon-container">
-                <a className="mail icon" href="#">
+                <a className="mail icon" href="mailto:warsimuahmmadowais@gmail.com">
                   <i className="fas fa-envelope"></i>
                 </a>
                 <div className='head'>Mail</div>
