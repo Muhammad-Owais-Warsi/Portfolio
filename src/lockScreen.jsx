@@ -25,6 +25,7 @@ export default function LockScreen() {
       <div className="date-day-container" style={{ display: "flex" }}>
         <div className="date">{formattedDate}</div>
       </div>
+      <div className="txt" style={{ animation: "blink 2.4s infinite" }}>Touch the Screen</div>
     </div>
   );
 }

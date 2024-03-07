@@ -7,6 +7,8 @@ export default function App() {
   const [time, setTime] = useState('');
   const [stream, setStream] = useState(null);
   const [cameraOpen, setCameraOpen] = useState(false);
+  const [batteryLevel,setBatteryLevel] = useState();
+
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -66,6 +68,29 @@ export default function App() {
       setStream(null);
     }
   };
+
+
+  useEffect(() => {
+    if('getBattery' in navigator) {
+        navigator.getBattery()
+        .then((battery) => {
+          updateBatteryStatus(battery);
+
+          battery.addEventListener("levelchange",() => {
+            updateBatteryStatus(battery)
+          })
+        })
+
+    }
+  },[]);
+
+  const updateBatteryStatus = (battery) => {
+    setBatteryLevel((battery.level * 100).toFixed(0) + '%');
+
+  };
+
+
+
   return (
     <div className="body">
   <Unlock></Unlock>
@@ -76,7 +101,7 @@ export default function App() {
             <div className="row-0">
               <div className='time'>{time}</div>
               <div className='cam'><i className="fas fa-circle"></i></div>
-              <div className='charge'><i className="fas fa-battery-quarter"></i></div>
+              <div className='charge'>{batteryLevel}</div>
             </div>
 
             <div className="row-1">

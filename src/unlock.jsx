@@ -5,9 +5,10 @@ import LockScreen from './lockScreen.jsx';
 
 export default function Unlock() {
   const [time, setTime] = useState('');
+  const [batteryLevel, setBatteryLevel] = useState(null);
+
 
   const screenRef = useRef();
-
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -25,18 +26,39 @@ export default function Unlock() {
     return () => clearInterval(intervalId);
   }, []);
 
-  const unlock = () => {
+  useEffect(() => {
+    if ('getBattery' in navigator) {
+      navigator.getBattery().then((battery) => {
+        updateBatteryStatus(battery);
 
-      screenRef.current.style.display = "none";
+        battery.addEventListener('levelchange', () => {
+          updateBatteryStatus(battery);
+        });
+
+      });
+    } else {
+      // The Battery Status API is not supported
+      console.error('Battery Status API is not supported in this browser');
+    }
+  }, []);
+
+  const updateBatteryStatus = (battery) => {
+    setBatteryLevel((battery.level * 100).toFixed(0) + '%');
 
   };
 
-  return (
-    <div className='lock' onClick={unlock} ref={screenRef} style={{flexDirection:"column"}}>
-      <div className='charging' ><i className="fas fa-battery-quarter"></i></div>
-      <div className='timing' >{time}</div>
-      <LockScreen></LockScreen>
+  const unlock = () => {
+    screenRef.current.style.display = "none";
+  };
 
+  return (
+    <div className='lock' onClick={unlock} ref={screenRef} style={{ flexDirection: "column" }}>
+      <div className='charging'>
+       
+        <span>{batteryLevel}</span>
+      </div>
+      <div className='timing'>{time}</div>
+      <LockScreen></LockScreen>
     </div>
   );
 }

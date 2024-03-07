@@ -16,10 +16,10 @@
 }
 
 .charging {
-  font-size: 24px;
+  font-size: 21px;
   /* margin-bottom: 10px; */
   position: relative;
-  top: -165px;
+  top: -153px;
   left: 108px;
 }
 
@@ -32,6 +32,23 @@
   left: 2px;
   top: -31px;
 
+}
+
+.txt {
+  position: relative;
+  top: 142px;
+  font-size: 22px;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.date-day-container {
+  position: relative;
+  left: 37px;
 }
 
 /* Add any additional styles for your unlock screen */
